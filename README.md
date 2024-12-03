@@ -36,3 +36,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 Design Doc: https://www.figma.com/design/CcHcSOdY8tKUfVr6LeLG6O/Untitled?node-id=0-1&t=WzSGwKJQdIH4Z1OA-1
+Live Website: game-store-website-beta.vercel.app
+
