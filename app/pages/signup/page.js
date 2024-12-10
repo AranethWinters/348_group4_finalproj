@@ -18,9 +18,9 @@ const SignUp = () => {
         <label htmlFor='userPass'>Enter Password</label>
         <input type='text' id='SignUpPass' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
         <button><Link href='/pages/dashboard'>SignUp</Link></button>
-      <button><Link href='/pages/signin'>Already have an account?</Link></button>
     </form>
     <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
+    <button><Link href='/pages/signin'>Already have an account?</Link></button>
     </div >
   )
 }
