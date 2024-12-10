@@ -1,4 +1,3 @@
-'use client'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { AiOutlineGoogle } from "react-icons/ai";
@@ -18,8 +17,8 @@ const SignUp = () => {
         <label htmlFor='userPass'>Enter Password</label>
         <input type='text' id='SignUpPass' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
         <button><Link href='/pages/dashboard'>SignUp</Link></button>
-      <button><Link href='/pages/dashboard'>Already have an account?</Link></button>
     </form>
+    <button><Link href='/pages/signin'>Already have an account?</Link></button>
     <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
     </div >
   )
