@@ -17,7 +17,7 @@ const SignUp = () => {
         <input type='text' id='SignUpPass' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
         <button onClick={createUserWithEmailAndPassword(auth, email, password)}><Link href='/pages/dashboard'>SignUp</Link></button>
       <button><Link href='/pages/dashboard'>Already have an account?</Link></button>
-      <button><Link href=''><AiOutlineGoogle size={30} /></Link></button>
+      <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
     </form>
     </div >
   )

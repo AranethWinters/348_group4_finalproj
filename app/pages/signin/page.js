@@ -15,7 +15,7 @@ const SignInPage = () => {
             <input type='text' id='SignInPass' className='text-black bg-pink-900'></input>
             <button><Link href='/pages/dashboard'>SignIn</Link></button>
             <button><Link href='/pages/signup'>Register</Link></button>
-            <button onClick={signIn} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
+            <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
         </form>
     </div>
   )
