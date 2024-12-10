@@ -14,8 +14,8 @@ const SignInPage = () => {
             <label htmlFor='userPass'>Enter Password</label>
             <input type='text' id='SignInPass' className='text-black bg-pink-900'></input>
             <button><Link href='/pages/dashboard'>SignIn</Link></button>
-            <button><Link href='/pages/signup'>Register</Link></button>
         </form>
+        <button><Link href='/pages/signup'>Register</Link></button>
         <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
     </div>
   )
