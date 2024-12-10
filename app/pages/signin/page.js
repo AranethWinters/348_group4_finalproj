@@ -5,7 +5,7 @@ import React from 'react'
 import { AiOutlineGoogle } from "react-icons/ai";
 
 const SignInPage = () => {
-  const {signIn} = useAuth();
+  const {signInWithGoogle} = useAuth();
   return (
     <div>
         <form>
@@ -15,8 +15,8 @@ const SignInPage = () => {
             <input type='text' id='SignInPass' className='text-black bg-pink-900'></input>
             <button><Link href='/pages/dashboard'>SignIn</Link></button>
             <button><Link href='/pages/signup'>Register</Link></button>
-            <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
         </form>
+        <button onClick={signInWithGoogle} ><Link href=''><AiOutlineGoogle size={30}/></Link></button>
     </div>
   )
 }
