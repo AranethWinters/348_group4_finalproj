@@ -1,4 +1,3 @@
-"use client"
 import { useAuth } from '@/app/lib/firebase/AuthContext';
 import Link from 'next/link'
 import React from 'react'
