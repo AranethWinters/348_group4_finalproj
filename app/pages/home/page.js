@@ -7,8 +7,8 @@ import Header from '@/app/components/header/page'
 const Homepage = () => {
   return (
     <div>
-      <CardList></CardList>
       <Header/>
+      <CardList></CardList>
       <button><Link href="/pages/signin">Signin</Link></button>
       <button><Link href="/pages/signup">Signup</Link></button>
       <Footer/>
