@@ -4,10 +4,11 @@ import { useRouter } from 'next/navigation';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
+import { auth, db } from '@/app/lib/firebase/clientApp'
 
 const Dashboard = () => {
   const [user, setUser] = useState<User|null>(null);
-  const [userName, setUserName] = useState<String|null>('null');
+  const [userName, setUserName] = useState('null');
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 

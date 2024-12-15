@@ -4,18 +4,18 @@ import { useRouter } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '@/app/lib/firebase/clientApp'
 import { doc, getDoc, setDoc } from "firebase/firestore"
-import { User } from 'firebase/auth';
+import { User } from './firebase/auth';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User|null>(null);
   const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         if (user.emailVerified) {
-          const userDoc = await getDoc(doc(db, "users", user.uid));
+          const userDoc = await getDoc(doc(db, "Users", user.uid));
           if (!userDoc.exists()) {
             const registrationData = localStorage.getItem('registrationData')
             const {
@@ -24,7 +24,7 @@ const Home = () => {
               middleName = '',
             } = registrationData ? JSON.parse(registrationData) : {};
 
-            await setDoc(doc(db, users, user.uid), {
+            await setDoc(doc(db, "Users", user.uid), {
               firstName,
               lastName,
               middleName,
