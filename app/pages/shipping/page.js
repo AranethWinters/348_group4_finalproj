@@ -38,6 +38,12 @@ const Shipping = () => {
                             <hr/>
                             <p>Delivery Note</p>
                             <textarea name='deliverynote'/>
+                            <hr/>
+                            <label>
+                                <input type='checkbox' name='tc'/> I accept the terms 
+                            </label>
+                            <hr/>
+                            <button type='submit'>Save shipping information</button>
                         </form>
                     </div>
                 </div>

@@ -6,13 +6,13 @@ import Header from '@/app/components/header/page'
 
 const Homepage = () => {
   return (
-    <div>
-      <Header/>
-      <main>
-        <CardList/>
-      </main>
-      <Footer/>
-    </div>
+      <div>
+        <Header/>
+        <main>
+          <CardList/>
+        </main>
+        <Footer/>
+      </div>
   )
 }
 
