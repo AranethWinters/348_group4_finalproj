@@ -7,18 +7,18 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main{
+  flex-grow: 1;
 }
 
 .container {
@@ -31,7 +31,7 @@ body {
 .navbar {
   width: 125%;
   height: 60px;
-  background-color: #171717;
+  background-color: #434343;
   color: white;
   display: flex;
   align-items: center;

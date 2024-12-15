@@ -58,6 +58,8 @@ const Home = () => {
       {user ? "Redirecting to dashboard..." : "Redirecting to home page..."}
     </div>
   )
+    <Homepage></Homepage>
+  );
 }
 
 export default Home;
