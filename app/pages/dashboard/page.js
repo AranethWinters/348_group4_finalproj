@@ -7,7 +7,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '@/app/lib/firebase/clientApp'
 
 const Dashboard = () => {
-  const [user, setUser] = useState<User|null>(null);
+  const [user, setUser] = useState('null');
   const [userName, setUserName] = useState('null');
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -21,7 +21,7 @@ const Dashboard = () => {
           const userData = userDoc.data();
           setUserName(`${userData.userName}`);
         } else {
-          router.push('/home')          
+          router.push('/pages/home')          
         }
         setLoading(false);
       }
@@ -32,7 +32,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      router.push("/home")
+      router.push("/pages/home")
     } catch (error) {
       console.error("Logout error:", error)
     }

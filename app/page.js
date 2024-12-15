@@ -1,14 +1,13 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '@/app/lib/firebase/clientApp'
+import { onAuthStateChanged, User} from 'firebase/auth';
+import { auth, db } from './lib/firebase/clientApp.js'
 import { doc, getDoc, setDoc } from "firebase/firestore"
-import { User } from './firebase/auth';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User|null>(null);
+  const [user, setUser] = useState(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -58,8 +57,6 @@ const Home = () => {
       {user ? "Redirecting to dashboard..." : "Redirecting to home page..."}
     </div>
   )
-    <Homepage></Homepage>
-  );
 }
 
 export default Home;
