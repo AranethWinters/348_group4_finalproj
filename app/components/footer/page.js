@@ -14,7 +14,6 @@ const Footer = () => {
                 <Link href="/about-us" className="hover:text-blue-400">About Us</Link>
                 <Link href="/contact" className="hover:text-blue-400">Contact</Link>
                 <Link href="/faqs" className="hover:text-blue-400">FAQs</Link>
-        
         </div>
         <p className="mt-4 text-sm text-gray-400">
           &copy; {new Date().getFullYear()} YourCompany. All rights reserved.
