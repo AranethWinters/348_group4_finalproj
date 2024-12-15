@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUsSummary = () => {
   return (
-    <div className="container">
+    <div className="relative">
       <div className="row">
         <div className="col-md-6">
           <img src="PLaceholder Studios.png" alt="About Us" />
