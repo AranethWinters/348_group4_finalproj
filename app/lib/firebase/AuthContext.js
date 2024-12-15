@@ -18,6 +18,18 @@ export function AuthProvider({children}) {
     
     const signInWithGoogle = () => {
         const provider = new GoogleAuthProvider();
+        return signInWithPopup(auth, provider).then(function(result) {
+            // code which runs on success
+          }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            console.log(errorCode);
+            alert(errorCode);
+          
+            var errorMessage = error.message;
+            console.log(errorMessage);
+            alert(errorMessage);
+          });;
         const userCred = signInWithPopup(auth, provider);
         return redirect('/pages/dashboard');
     };
