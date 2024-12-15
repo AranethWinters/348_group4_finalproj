@@ -1,8 +1,8 @@
 'use client'
-
 import { createContext, useContext, useEffect, useState } from "react"
 import { onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, signInWithCredential, signInWithEmailAndPassword} from 'firebase/auth';
 import { auth } from './clientApp.js';
+import { redirect } from 'next/navigation.js'
 
 const AuthContext = createContext();
 
@@ -15,10 +15,11 @@ export function AuthProvider({children}) {
         });
         return () => unsubscribe();
     }, []);
-
+    
     const signInWithGoogle = () => {
         const provider = new GoogleAuthProvider();
-        return signInWithPopup(auth, provider);
+        const userCred = signInWithPopup(auth, provider);
+        return redirect('/pages/dashboard');
     };
 
     const signIn = (auth, email, password) => {

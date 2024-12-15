@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function header() {
@@ -11,7 +12,7 @@ function header() {
             <li><a href="#">Our Games</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><a href="#">Sign in</a></li>
+            <li><Link href="/pages/signin">Sign in</Link></li>
             <li><a href="#">Register</a></li>
           </ul>
         </nav>
