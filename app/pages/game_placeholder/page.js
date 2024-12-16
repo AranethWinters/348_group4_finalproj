@@ -9,6 +9,7 @@ const GamePage = () => {
             <Header></Header>
             <CardList></CardList>
             <Footer></Footer>
+             {/*This is a comment*/}
         </div>
     )
 }
