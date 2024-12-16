@@ -1,48 +1,60 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-import { auth, db } from '@/app/lib/firebase/clientApp'
+import { auth, db } from '../../lib/firebase/clientApp';
 
 const Dashboard = () => {
-  const [user, setUser] = useState<User|null>(null);
-  const [userName, setUserName] = useState('null');
-  const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const [userDetails, setUserDetails] = useState(null);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user)=> {
-      if (user) {
-        setUser(user);
-        const userDoc = await getDoc(doc(db, "Users", user.uid));
-        if (!userDoc.exists){
-          const userData = userDoc.data();
-          setUserName(`${userData.userName}`);
-        } else {
-          router.push('/home')          
-        }
-        setLoading(false);
-      }
-    })
-    return () => unsubscribe();
-  },[router]);
-
-  const handleLogout = async () => {
+  const fetchUserData = async() => {
     try {
-      await signOut(auth);
-      router.push("/home")
+      auth.onAuthStateChanged(async(user)=>{    
+        console.log(user);
+        const docRef = doc(db, "Users", user.uid);
+        const snapshot = await getDoc(docRef);
+        if (snapshot.exists){
+          setUserDetails(snapshot.data);
+        } else {
+          console.log('User is not logged in')
+        }
+      }
+    )
     } catch (error) {
-      console.error("Logout error:", error)
+      console.log(error.message)
     }
   };
 
+  useEffect(() => {
+    fetchUserData();
+  },[])
+
+  async function handleLogout() {
+    try {
+      await auth.signOut()
+      console.log("User signed out successfully")
+      router.push('/pages/home')
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <div>
-      Dashboard
-      <div>
-        <p>Welcome, {userName}!</p></div>
+      {userDetails? (
+        <>
+        <h3>
+          Welcome, {userDetails.userName}!
+        </h3>
+        <div>
+          <button onClick={handleLogout}>LogOut</button>
+        </div>
+        </>
+      ):(
+        <p>Loading...</p>
+      )}
     </div>
   );
 }
