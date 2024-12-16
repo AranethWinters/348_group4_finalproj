@@ -1,8 +1,8 @@
 'use client';
 import React from 'react'
-import CardList from './../../components/card'
-import AboutUsSummary from './../../components/about_us/page.js';
-import Link from 'next/link';
+import CardList from '@/app/components/smallcard/page'
+import CardList from '@/app/components/card'
+import AboutUsSummary from '@/app/components/aboutus';
 
 const Homepage = () => {
 

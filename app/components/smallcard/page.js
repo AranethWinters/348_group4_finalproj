@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import Link from 'next/link';
 
@@ -20,7 +19,7 @@ const Card = ({ title, description, imageUrl, price, link }) => (
 );
 
 
-const CardList = () => {
+const SmallCardList = () => {
     const cards = [
         {
             title: 'Game 1',

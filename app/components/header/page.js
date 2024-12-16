@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import Link from 'next/link'
 
@@ -14,6 +15,7 @@ function Header() {
             <li><a href="#">Contact</a></li>
             <li><Link href="/pages/signin">Sign in</Link></li>
             <li><Link href="/pages/signup">Register</Link></li>
+            <li><a href="#">Register</a></li>
           </ul>
         </nav>
       </div>
