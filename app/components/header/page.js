@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
 
-
 function Header() {
   return (
     <div className="container">
@@ -10,7 +9,7 @@ function Header() {
           <ul>
             <li><a href="#"><img src=""/></a></li>
             <li><a href="/pages/home">Home</a></li>
-            <li><a href="#">Our Games</a></li>
+            <li><a href="/pages/game_placeholder">Our Games</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
             <li><Link href="/pages/signin">Sign in</Link></li>
