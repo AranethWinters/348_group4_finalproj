@@ -8,7 +8,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore"
 const Home = () => {
   const router = useRouter();
   return (
-    <div onLoad={router.push("pages/home")}>
+    <div onLoad={router.push("/pages/home")}>
     </div>
   )
 }

@@ -60,4 +60,4 @@ const SmallCardList = () => {
     );
 };
 
-export default CardList;
+export default SmallCardList;
