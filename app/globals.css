@@ -64,7 +64,7 @@ main{
   color: var(--secondary-color);
 }
 
-.container {
+.container-gameinfo {
   text-align: center;
   margin: 0 auto;
   padding: 2rem 1rem;
