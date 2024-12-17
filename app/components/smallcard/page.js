@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Card = ({ title, description, imageUrl, price, link }) => (
+const SmallCardList = ({ title, description, imageUrl, price, link }) => (
     <Link href={link} className="max-w-[300px] rounded overflow-hidden shadow-lg bg-white border border-gray-200 block hover:shadow-xl transition-shadow" >
         <img src={imageUrl} alt={title} />
         <div className="px-6 py-4">
@@ -60,4 +60,4 @@ const CardList = () => {
     );
 };
 
-export default CardList;
+export default SmallCardList;
