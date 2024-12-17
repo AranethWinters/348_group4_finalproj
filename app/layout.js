@@ -27,12 +27,10 @@ export default function RootLayout({ children }) {
         <div className="relative min-h-screen">
           <Header></Header>
           <div className='pb-[10rem]'>
-            <Header/>
             {children}
-            <Footer/>
             </div>
+            <Footer></Footer>
           </div>
-          <Footer></Footer>
       </body>
     </html>
   );
