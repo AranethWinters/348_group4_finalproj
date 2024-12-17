@@ -1,5 +1,5 @@
 import React from "react";
-import AboutUsSummary from "@/app/components/about_us/AboutUsSummary.js";
+import AboutUsSummary from "./../../components/about_us/AboutUsSummary.js";
 
 
 const AboutUs = () =>{
