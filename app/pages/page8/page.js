@@ -1,10 +1,8 @@
 import React from 'react'
-import Header from '@/app/components/header/page.js'
 
 const ContactForm = () => {
   return (
     <div>
-      <Header />
       <main className="container-contact">
         <form onsubmit="sendEmail(); reset(); return false;">
         <h3>GET IN TOUCH</h3>

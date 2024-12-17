@@ -1,10 +1,8 @@
 import React from 'react'
-import Header from '@/app/components/header/page.js'
 
 const Game1 = () => {
   return (
     <div>
-      <Header />
       <main className="container">
         <div className='game-details'>
           <h1 className="game-title">Game 1</h1>

@@ -1,10 +1,8 @@
 import React from "react";
-import Header from '@/app/components/header/page.js'
 
 const UserProfile = () => {
   return (
     <div>
-      <Header />
       <main className="user-profile">
         <div className="profile-header">
           <img
