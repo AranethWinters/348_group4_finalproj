@@ -19,7 +19,7 @@ const SmallCardList = ({ title, description, imageUrl, price, link }) => (
 );
 
 
-const CardList = () => {
+const SmallCardList = () => {
     const cards = [
         {
             title: 'Game 1',

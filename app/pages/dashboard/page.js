@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../../lib/firebase/clientApp';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 
 const Dashboard = () => {
   const router = useRouter();
@@ -38,7 +40,7 @@ const Dashboard = () => {
       console.log("User signed out successfully")
       router.push('/pages/home')
     } catch (error) {
-
+      
     }
   }
 

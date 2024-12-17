@@ -1,7 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./components/header/page";
-import Footer from "./components/footer/page";
+import Header from "./components/header/Header.jsx";
+import Footer from "./components/footer/Footer";
+import {auth} from "./lib/firebase/clientApp"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,12 +25,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="relative min-h-screen">
+          <Header></Header>
           <div className='pb-[10rem]'>
             <Header/>
-              {children}
+            {children}
             <Footer/>
             </div>
           </div>
+          <Footer></Footer>
       </body>
     </html>
   );

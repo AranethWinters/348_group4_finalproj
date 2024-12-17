@@ -36,7 +36,7 @@ const SignInPage = () => {
               var errorCode = error.code;
               console.log(errorCode);
               alert(errorCode);
-
+            
               var errorMessage = error.message;
               console.log(errorMessage);
               alert(errorMessage);

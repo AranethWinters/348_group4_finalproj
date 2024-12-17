@@ -5,7 +5,7 @@ const AboutUsSummary = () => {
     <div className='relative'>
       <div className="flex-row">
         <div className="flex-col">
-          <img src="PLaceholder Studios.png" alt="About Us" />
+          <img src="Placeholder Studios.png" alt="About Us" />
         </div>
         <div className="flex-col">
           <h2>About Us Summary</h2>
