@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { auth } from '../../lib/firebase/clientApp'
-import Authentication from './../authentication' 
+import Authentication from '../Authentication' 
 
 
 function Header(){
