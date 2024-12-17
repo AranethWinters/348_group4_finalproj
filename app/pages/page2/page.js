@@ -3,7 +3,7 @@ import React from 'react'
 const Game1 = () => {
   return (
     <div>
-      <main className="container">
+      <main className="container-gameinfo">
         <div className='game-details'>
           <h1 className="game-title">Game 1</h1>
           <button className="add-to-cart">Add to Cart</button>
