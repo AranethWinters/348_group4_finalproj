@@ -1,13 +1,10 @@
 import React from 'react'
-import Header from '@/app/components/header/Header.jsx'
-import Footer from '@/app/components/footer/Footer.js'
 import Image from 'next/image'
 import Placeholder from '../../assets/images/image.png'
 
 const Shipping = () => {
   return (
     <div>
-        <Header/>
         <main>
             <div className='flex justify-center my-8'>
                 <div className='grid grid-cols-5'>
@@ -43,7 +40,6 @@ const Shipping = () => {
                 </div>
             </div>
         </main>
-        <Footer/>
     </div>
   )
 }
