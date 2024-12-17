@@ -4,14 +4,12 @@ import { useState } from 'react'
 import { AiOutlineGoogle } from "react-icons/ai";
 import { signInWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { auth, db } from './../../lib/firebase/clientApp';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { auth } from './../../lib/firebase/clientApp';
 import { toast } from 'react-toastify';
 
 const SignInPage = () => {
   const [email, setEmail ] = useState(" ");
   const [ password, setPassword] = useState("");
-  const [ error, setError ]  = useState(null);
   const router = useRouter();
 
   const handleLogin = async (e) => {
@@ -44,16 +42,24 @@ const SignInPage = () => {
       };
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <label htmlFor='email'>Enter Email</label>
-        <input type='email' value={email} id='email' className='text-black bg-pink-900' onChange={(e) => setEmail(e.target.value)} required></input>
-        <label htmlFor='password'>Enter Password</label>
-        <input type='password' id='password' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
-        <input type='submit' value='Log In'/>
+    <div className='flex content-center justify-center align-center pt-[12%]'>
+      <div className='flex flex-col items-center justify-center content-center border-[3px] border-gray-500 shadow-md w-auto p-5 rounded-lg'>
+      <form onSubmit={handleLogin} className='flex flex-col border-1 border-gray-100 h-full w-full justify-center items-center align-center content-center'>
+        <div className=' h-full flex-col justify-center content-center align-center items-center'>
+            <label htmlFor='email'>Email: </label>
+            <input type='email' value={email} id='email' className='text-black bg-pink-900' onChange={(e) => setEmail(e.target.value)} required></input>
+            </div>
+        <div>
+            <label htmlFor='password'>Password: </label>
+            <input type='password' id='password' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
+        </div>
+          <input type='submit' value='Log In' className='self-center'/>
       </form>
-      <button><Link href='/pages/signup'>Register</Link></button>
-      <button onClick={signInWithGoogle} ><AiOutlineGoogle size={30} /></button>
+      <div className='flex flex-col justify-center content-center items-center'>
+        <button><Link href='/pages/signup' className='font-bold underline'>Register here</Link></button>
+        <button onClick={signInWithGoogle} ><AiOutlineGoogle size={30} /></button>
+      </div>
+    </div>
     </div>
   )
 }
