@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from '@/app/components/header/page.js'
 
 const ContactForm = () => {
   return (
