@@ -29,8 +29,8 @@ export default function RootLayout({ children }) {
           <div className='pb-[10rem]'>
             {children}
             </div>
+            <Footer></Footer>
           </div>
-          <Footer></Footer>
       </body>
     </html>
   );
