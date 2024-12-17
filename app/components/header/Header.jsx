@@ -1,8 +1,6 @@
 'use client'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import Authentication from './../Authentication.jsx';
-
+import React from 'react'
+import Authentication from '../authentication/Authentication';
 
 function Header(){
   return (
