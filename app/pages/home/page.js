@@ -1,9 +1,7 @@
 'use client';
 import React from 'react'
 import CardList from '../../components/smallcard/SmallCardList'
-import AboutUsSummary from '../../components/AboutUsSummary';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
+import AboutUsSummary from '../../components/about_us/AboutUsSummary';
 import {auth} from './../../lib/firebase/clientApp'
 
 const Homepage = () => {

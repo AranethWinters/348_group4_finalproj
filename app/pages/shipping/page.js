@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '@/app/components/header/Header.jsx'
-import Footer from '@/app/components/footer/Footer.js'
 import Image from 'next/image'
 import Placeholder from '../../assets/images/image.png'
 

@@ -1,13 +1,8 @@
 'use client'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import { auth } from '../../lib/firebase/clientApp'
-import Authentication from '../Authentication' 
-
+import React from 'react'
+import Authentication from '../authentication/Authentication';
 
 function Header(){
-  const [user, setUser] = useState(auth.currentUser);
-  console.log(user)
   return (
     <div className="container">
       <div className="navbar">
