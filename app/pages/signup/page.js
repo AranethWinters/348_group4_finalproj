@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import React, { useState, FomEvent } from 'react'
 import { AiOutlineGoogle } from "react-icons/ai";
