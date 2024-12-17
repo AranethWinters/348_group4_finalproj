@@ -23,7 +23,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       if (password == confirmPassword) { 
-        createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password);
       } else {
         throw new Error("Password does not match");
       }
@@ -33,7 +33,7 @@ const SignUp = () => {
       await sendEmailVerification(user)
       if (user) {
         console.log(user);
-        await setDoc(doc(db, "Users", userUID), {
+        await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
           userName: userName,
           firstName: firstName,

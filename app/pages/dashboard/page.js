@@ -1,22 +1,23 @@
 'use client'
 import React, {useState, useEffect} from 'react';
 import { useRouter } from 'next/navigation';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db } from '../../lib/firebase/clientApp';
 
 const Dashboard = () => {
   const router = useRouter();
   const [userDetails, setUserDetails] = useState(null);
-
   const fetchUserData = async() => {
     try {
       auth.onAuthStateChanged(async(user)=>{    
         console.log(user);
+        console.log(user.uid)
         const docRef = doc(db, "Users", user.uid);
         const snapshot = await getDoc(docRef);
+        console.log(snapshot)
         if (snapshot.exists){
-          setUserDetails(snapshot.data);
+          setUserDetails(snapshot.data());
+          console.log(userDetails)
         } else {
           console.log('User is not logged in')
         }
@@ -48,6 +49,9 @@ const Dashboard = () => {
         <h3>
           Welcome, {userDetails.userName}!
         </h3>
+        <div>
+          <p>Your name is {userDetails.firstName} {userDetails.lastName}.</p>
+        </div>
         <div>
           <button onClick={handleLogout}>LogOut</button>
         </div>
