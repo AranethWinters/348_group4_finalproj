@@ -1,13 +1,16 @@
-import Link from 'next/link'
+'use client';
 import React from 'react'
-import Header from '@/app/components/header/page'
+import CardList from '../../components/smallcard/SmallCardList'
+import AboutUsSummary from '../../components/about_us/AboutUsSummary';
+import {auth} from './../../lib/firebase/clientApp'
 
 const Homepage = () => {
+  const user = auth.currentUser;
+  console.log(user)
   return (
     <div>
-      <Header/>
-      <button><Link href="/pages/signin">Signin</Link></button>
-      <button><Link href="/pages/signup">Signup</Link></button>
+      <AboutUsSummary></AboutUsSummary>
+      <CardList></CardList>
     </div>
   )
 }
