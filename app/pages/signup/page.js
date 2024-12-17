@@ -37,7 +37,6 @@ const SignUp = () => {
           email: user.email,
           userName: userName,
           firstName: firstName,
-          middleName: middleName,
           lastName: lastName,
         })
       }
@@ -71,6 +70,10 @@ const SignUp = () => {
       <form onSubmit={handleRegister}>
         <label htmlFor='userName'>Enter Username</label>
         <input type='text' value={userName} id='userName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)}></input>
+        <label htmlFor='firstName'>Enter First Name</label>
+        <input type='text' value={firstName} id='firstName' className='text-black bg-pink-900' onChange={(e) => setFirstName(e.target.value)}></input>
+        <label htmlFor='lastName'>Enter Last Name</label>
+        <input type='text' value={lastName} id='lastName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)}></input>
         <label htmlFor='email'>Enter Email</label>
         <input type='email' value={email} id='email' className='text-black bg-pink-900' onChange={(e) => setEmail(e.target.value)} required></input>
         <label htmlFor='password'>Enter Password</label>

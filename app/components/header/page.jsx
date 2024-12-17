@@ -1,19 +1,24 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { auth } from '../../lib/firebase/clientApp'
+import Authentication from './../authentication' 
 
-function Header() {
+
+function Header(){
+  const [user, setUser] = useState(auth.currentUser);
+  console.log(user)
   return (
     <div className="container">
       <div className="navbar">
         <nav>
           <ul>
-            <li><a href="#"><img src=""/></a></li>
+            <li><a href="#"><img src={null}/></a></li>
             <li><a href="/pages/home">Home</a></li>
             <li><a href="/pages/game_placeholder">Our Games</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><Link href="/pages/signin">Sign in</Link></li>
-            <li><Link href="/pages/signup">Register</Link></li>
+            <Authentication></Authentication>
           </ul>
         </nav>
       </div>

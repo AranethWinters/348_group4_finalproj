@@ -1,5 +1,5 @@
 import React from 'react'
-import SmallCardList from '@/app/components/smallcard/page'
+import SmallCardList from './../../components/smallcard/page'
 
 const GamePage = () => {
     return(
