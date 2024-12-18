@@ -4,19 +4,20 @@ import Image from 'next/image'
 import { auth, db } from './../../lib/firebase/clientApp';
 import { setDoc, doc, addDoc, getDoc, collection } from 'firebase/firestore';
 import Placeholder from '../../assets/images/image.png'
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 const Shipping = () => {
     const [fullname, setFullName] = useState('');
     const [location, setLocation] = useState('');
     const [deliverynotes, setDeliveryNotes] = useState('');
     const [readtc, setReadTC] = useState(false);
+    const router = useRouter();
 
     const HandleShipping = async (e) => {
         e.prevenDefault();
         const user = auth.currentUser;
-
         if (user){
+            console.log(user)
             await addDoc(collection(db, "Shipping"), {
                 fullname: fullname,
                 location: location,
@@ -24,7 +25,7 @@ const Shipping = () => {
                 readtc: readtc,
             })
         }
-        redirect('/../order')
+        router.push('/pages/order_confirmed')
     }
 
     return (

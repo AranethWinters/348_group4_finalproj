@@ -1,12 +1,18 @@
+'use client'
 import React from 'react'
+import {useRouter} from 'next/navigation'
 
 const Game1 = () => {
+  const router = useRouter();
+  const handleOrder = () => {
+      router.push('/pages/order')
+  }
   return (
     <div>
       <main className="container-gameinfo">
         <div className='game-details'>
           <h1 className="game-title">Game 1</h1>
-          <button className="add-to-cart">Buy Game</button>
+          <button className="add-to-cart" onClick={handleOrder}>Buy Game</button>
         </div>
 
         <div className="game-info-container">

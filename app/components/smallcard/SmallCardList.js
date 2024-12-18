@@ -26,21 +26,21 @@ const SmallCardList = () => {
             description: 'An exciting adventure game full of challenges.',
             imageUrl: "https://picsum.photos/300",
             price: '29.99',
-            link: '/game-1', // Example link
+            link: '/pages/game_info', // Example link
         },
         {
             title: 'Game 2',
             description: 'A fast-paced racing game with stunning graphics.',
             imageUrl: "https://picsum.photos/300",
             price: '19.99',
-            link: '/game-2', // Example link
+            link: '/pages/game_info', // Example link
         },
         {
             title: 'Game 3',
             description: 'A strategic puzzle game for all ages.',
             imageUrl: "https://picsum.photos/300",
             price: '14.99',
-            link: '/game-3', // Example link
+            link: '/pages/game_info', // Example link
         },
     ];
 
