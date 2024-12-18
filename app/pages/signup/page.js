@@ -5,7 +5,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from './../../lib/firebase/clientApp';
 import { redirect } from 'next/navigation';
-import { setDoc, doc, addDoc, getDoc } from 'firebase/firestore';
+import { setDoc, doc, addDoc, getDoc} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
@@ -71,7 +71,7 @@ const SignUp = () => {
       <form onSubmit={handleRegister} className='flex flex-col border-1 border-gray-100 h-full w-full justify-center items-center align-center content-center'>
         <div>
           <label htmlFor='userName'>Enter Username: </label>
-          <input type='text' value={userName} id='userName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)}></input>
+          <input type='text' value={userName} id='userName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)} required></input>
         </div>
         <div>
           <label htmlFor='email'>Enter Email:</label>
