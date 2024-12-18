@@ -2,7 +2,7 @@
 import React, { use, useState } from 'react'
 import Image from 'next/image'
 import { auth, db } from './../../lib/firebase/clientApp';
-import { setDoc, doc, addDoc, getDoc, Timestamp, collection } from 'firebase/firestore';
+import { setDoc, doc, addDoc, getDoc, collection } from 'firebase/firestore';
 import Placeholder from '../../assets/images/image.png'
 import { redirect } from 'next/navigation';
 
@@ -12,17 +12,16 @@ const Shipping = () => {
     const [deliverynotes, setDeliveryNotes] = useState('');
     const [readtc, setReadTC] = useState(false);
 
-    const handleShipping = async (e) => {
+    const HandleShipping = async (e) => {
         e.prevenDefault();
         const user = auth.currentUser;
 
         if (user){
-            await addDoc(collection(db, "Transactions"), {
-                uuid: user.uid,
-                date: Timestamp.fromDate(Date.now.toString),
-                tc: readtc,
-                deliverynotes: deliverynote,
-
+            await addDoc(collection(db, "Shipping"), {
+                fullname: fullname,
+                location: location,
+                deliverynotes: deliverynotes,
+                readtc: readtc,
             })
         }
         redirect('/../order')
@@ -40,7 +39,7 @@ const Shipping = () => {
                 />
             </div>
             <div className='basis-1/4 h-1/2 p-8 border'>
-                <form className='object-contain' onSubmit={handleShipping}>
+                <form className='object-contain' onSubmit={HandleShipping}>
                     <p>Shipping Information</p>
                     <p>We ship within 2 working days</p>
                     <hr/>

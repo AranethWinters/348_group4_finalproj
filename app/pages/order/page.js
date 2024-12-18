@@ -1,57 +1,76 @@
 'use client'
 
-import React from 'react'
+import React, { use, useState } from 'react'
+import { auth, db } from './../../lib/firebase/clientApp';
+import { setDoc, doc, addDoc, getDoc, collection } from 'firebase/firestore';
+import { redirect } from 'next/navigation';
 
 function Order() {
-  return (
-    <div className='flex justify-center gap-8'>
-        <div className='min-w-min max-w-fit border'>
-            <form>
+    const [paymenttype, setPaymentType] = useState('');
+    const [cardnumber, setCardNumber] = useState('');
+    const [expdate, setExpDate] = useState('');
+    const [cvv, setCVV] = useState('');
+    const [discountcode, setDiscountCode] = useState('');
+
+    const HandleOrder = async (e) => {
+        e.prevenDefault();
+        const user = auth.currentUser;
+
+        if (user){
+            await addDoc(collection(db, "Order"), {
+                paymenttype: paymenttype,
+                cardnumber: cardnumber,
+                expdate: expdate,
+                cvv: cvv,
+                discountcode: discountcode
+            })
+        }
+        redirect('/../order')
+    }
+
+    return (
+        <form className='flex flex-row justify-center h-screen w-screen gap-8 p-8'>
+            <div className='content-center w-1/2 h-1/2 border p-4'>
                 <p>Payment</p>
                 <hr/>
                 <p>Pay With:</p>
                 <div>
                     <label>
-                        <input type='radio' name='radioCard' value="card"/>
+                        <input type='radio' name='paymentType' id='radioCard' value="card" onChange={(e) =>setPaymentType(e.target.value)} required/>
                         Card
                     </label>
                     <label>
-                        <input type='radio' name='radioBank' value="bank"/>
+                        <input type='radio' name='paymentType' id='radioBank' value="bank" onChange={(e) =>setPaymentType(e.target.value)} required/>
                         Bank
                     </label>
                     <label>
-                        <input type='radio' name='radioTransfer' value="transfer"/>
+                        <input type='radio' name='paymentType' id='radioTransfer' value="transfer" onChange={(e) =>setPaymentType(e.target.value)} required/>
                         Transfer
                     </label>
                 </div>
                 <p>Card Number</p>
-                <input name='cardNo'/>
+                <input id='cardNo' onChange={(e) =>setCardNumber(e.target.value)} required/>
                 <div>
                     <p>Expiration Date</p>
-                    <input name='expDate'/>
+                    <input id='expDate' onChange={(e) =>setExpDate(e.target.value)} required/>
                     <p>CVV</p>
-                    <input name='cvv'/>
+                    <input id='cvv' onChange={(e) =>setCVV(e.target.value)} required/>
                 </div>
                 <label>
-                    <input type='checkbox' name='saveCard'/>
+                    <input type='checkbox' id='saveCard'/>
                     Save card details
                 </label>
                 <hr/>
-                <button type='submit'>Pay USD</button>
+                <button type='submit' id='submit'>Pay USD</button>
                 <p>
                     Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
                 </p>
-            </form>
-        </div>
-        <div className='border'>
-            <form>
+            </div>
+            <div className='content-center border h-1/2 p-4'>
                 <p>Order Summary</p>
                 <hr/>
-                <div>
-
-                </div>
                 <hr/>
-                <input name='giftCode' placeholder='Gift or discount code'/>
+                <input id='giftCode' placeholder='Gift or discount code' onChange={(e) =>setDiscountCode(e.target.value)}/>
                 <button>Apply</button>
                 <hr/>
                 <div>
@@ -60,17 +79,15 @@ function Order() {
                 </div>
                 <div>
                     <p>Shipping</p>
-                    <p>$</p>
+                    <p>$7.24</p>
                 </div>
                 <hr/>
                 <div>
                     <p>Total</p>
                     <p>$</p>
-                </div>      
-            </form>
-        </div>
-    </div>
-  )
+                </div>
+            </div>    
+        </form>     
+    )
 }
-
 export default Order
