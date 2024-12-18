@@ -6,7 +6,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from './../../lib/firebase/clientApp';
 import { redirect } from 'next/navigation';
-import { setDoc, doc, addDoc, getDoc } from 'firebase/firestore';
+import { setDoc, doc, addDoc, getDoc} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
@@ -67,25 +67,40 @@ const SignUp = () => {
 };
 
   return (
-    <div>
-      <form onSubmit={handleRegister}>
-        <label htmlFor='userName'>Enter Username</label>
-        <input type='text' value={userName} id='userName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)}></input>
-        <label htmlFor='firstName'>Enter First Name</label>
-        <input type='text' value={firstName} id='firstName' className='text-black bg-pink-900' onChange={(e) => setFirstName(e.target.value)}></input>
-        <label htmlFor='lastName'>Enter Last Name</label>
-        <input type='text' value={lastName} id='lastName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)}></input>
-        <label htmlFor='email'>Enter Email</label>
-        <input type='email' value={email} id='email' className='text-black bg-pink-900' onChange={(e) => setEmail(e.target.value)} required></input>
-        <label htmlFor='password'>Enter Password</label>
-        <input type='password' id='password' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
-        <label htmlFor='confirmPassword'>Confirm Password</label>
-        <input type='password' id='confirmPassword' className='text-black bg-pink-900' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required ></input>
-        <input type='submit' name='submit' value={'Register'} />
+    <div className='flex content-center justify-center align-center pt-[5%]'>
+      <div className='flex flex-col items-center justify-center content-center border-[3px] border-gray-500 shadow-md w-auto p-5 rounded-lg'>
+      <form onSubmit={handleRegister} className='flex flex-col border-1 border-gray-100 h-full w-full justify-center items-center align-center content-center'>
+        <div>
+          <label htmlFor='userName'>Enter Username: </label>
+          <input type='text' value={userName} id='userName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)} required></input>
+        </div>
+        <div>
+          <label htmlFor='email'>Enter Email:</label>
+          <input type='email' value={email} id='email' className='text-black bg-pink-900' onChange={(e) => setEmail(e.target.value)} required></input>
+        </div>
+        <div>
+          <label htmlFor='firstName'>Enter First Name: </label>
+          <input type='text' value={firstName} id='firstName' className='text-black bg-pink-900' onChange={(e) => setFirstName(e.target.value)} required></input>
+        </div>
+        <div>
+          <label htmlFor='lastName'>Enter Last Name: </label>
+          <input type='text' value={lastName} id='lastName' className='text-black bg-pink-900' onChange={(e) => setUserName(e.target.value)}required></input>
+        </div>
+        <div>
+          <label htmlFor='password'>Enter Password: </label>
+          <input type='password' id='password' className='text-black bg-pink-900' value={password} onChange={(e) => setPassword(e.target.value)} required ></input>
+        </div>
+        <div>
+          <label htmlFor='confirmPassword'>Confirm Password: </label>
+          <input type='password' id='confirmPassword' className='text-black bg-pink-900' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required ></input>
+        </div>
+        <br></br>
+        <input type='submit' name='submit' value={'Register'} className='bg-gray-500 border-1 rounded px-3'/>
       </form>
-      <button><Link href='/pages/signin'>Already have an account?</Link></button>
+      <button><Link href='/pages/signin' className='font-bold underline'>Already have an account?</Link></button>
       <button onClick={signInWithGoogle} ><AiOutlineGoogle size={30} /></button>
     </div >
+    </div>
   )
 }
 

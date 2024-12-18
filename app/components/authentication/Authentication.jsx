@@ -7,8 +7,8 @@ import Link from 'next/link';
 const Authentication = () => {
     const [authenticatedUser, setAuthenticatedUser] = useState(null);
 
-    useEffect(()=> {
-        const listenAuth = onAuthStateChanged(auth, (user)=>{
+    useEffect(() => {
+        const listenAuth = onAuthStateChanged(auth,(user)=>{
             if (user) {
                 setAuthenticatedUser(user)
             } else{
